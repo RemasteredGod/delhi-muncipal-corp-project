@@ -1,6 +1,8 @@
 fastapi
-uvicorn
+uvicorn[standard]
 requests
 redis
 twilio
 python-dotenv
+python-multipart
+aiofiles

@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Calling Agent Dashboard</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>🤖 AI Calling Agent Dashboard</h1>
+        <p class="subtitle">Delhi Municipal Corporation - Helpline Monitor</p>
+        <div style="margin-top: 15px">
+          <a
+            href="/frontend/voice-test.html"
+            style="
+              display: inline-block;
+              padding: 12px 24px;
+              background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+              color: white;
+              text-decoration: none;
+              border-radius: 8px;
+              font-weight: 500;
+              box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+              transition: transform 0.2s;
+            "
+            onmouseover="this.style.transform = 'translateY(-2px)'"
+            onmouseout="this.style.transform = 'translateY(0)'"
+          >
+            🎤 Test Voice Agent
+          </a>
+        </div>
+      </header>
+
+      <div class="call-initiation-section">
+        <h2>📞 Initiate Outbound Call</h2>
+        <div class="call-form">
+          <input
+            type="tel"
+            id="phone-number"
+            placeholder="+91 91554 28277"
+            value="+919155428277"
+            class="phone-input"
+          />
+          <button id="call-btn" onclick="initiateCall()" class="call-button">
+            📞 Call Now
+          </button>
+        </div>
+        <div id="call-status-message" class="status-message"></div>
+      </div>
+
+      <div class="stats-bar">
+        <div class="stat-card">
+          <div class="stat-value" id="active-calls-count">0</div>
+          <div class="stat-label">Active Calls</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" id="total-calls-count">0</div>
+          <div class="stat-label">Total Sessions</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" id="messages-count">0</div>
+          <div class="stat-label">Total Messages</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value status-indicator" id="system-status">●</div>
+          <div class="stat-label">System Status</div>
+        </div>
+      </div>
+
+      <div class="controls">
+        <button id="refresh-btn" onclick="loadCalls()">🔄 Refresh</button>
+        <button id="auto-refresh-btn" onclick="toggleAutoRefresh()">
+          ▶️ Auto-Refresh: OFF
+        </button>
+      </div>
+
+      <div id="calls-container">
+        <div class="loading">Loading calls...</div>
+      </div>
+    </div>
+
+    <script src="dashboard.js"></script>
+  </body>
+</html>

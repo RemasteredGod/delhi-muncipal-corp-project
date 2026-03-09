@@ -2,9 +2,14 @@ FROM python:3.10
 
 WORKDIR /app
 
-COPY requirements.txt .
+# Copy API requirements and install
+COPY api/requirements.txt .
 RUN pip install -r requirements.txt
 
-COPY . .
+# Copy API code
+COPY api/ .
+
+# Copy frontend files
+COPY frontend/ /app/frontend/
 
 CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
